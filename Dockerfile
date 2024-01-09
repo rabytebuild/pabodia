@@ -1,16 +1,11 @@
-# Use the base image
-FROM kalilinux/kali-linux-docker
+# Use the specified Kali Linux image
+FROM kasmweb/kali-rolling-desktop:1.14.0
 
-# Update and install necessary packages
-RUN apt-get update && \
-    apt-get install -y kali-linux-core kali-desktop-xfce && \
-    apt-get clean
+# Expose the port on which NoVNC runs (6901 inside the container)
+EXPOSE 6901
 
-# Expose the port on which NoVNC runs (80 inside the container)
-EXPOSE 80
-
-# Set the environment variable for screen resolution
+# Set the environment variable for screen resolution (adjust as needed)
 ENV RESOLUTION=1380x770
 
-# Start the command to run NoVNC
+# Start the command to run NoVNC with the specified password
 CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
