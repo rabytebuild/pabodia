@@ -1,5 +1,5 @@
 # Use the latest Windows base image
-FROM mcr.microsoft.com/windows/servercore:ltsc2019
+FROM windows:latest
 
 # Set the working directory
 WORKDIR C:/actions-runner
