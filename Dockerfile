@@ -1,11 +1,11 @@
-# Use the base image
-FROM fredbigr/ubuntu-novnc:20.04
+# Use the specified Kali Linux image
+FROM kasmweb/kali-rolling-desktop:1.14.0
 
-# Expose the port on which NoVNC runs (80 inside the container)
-EXPOSE 80
+# Expose the port on which NoVNC runs (6901 inside the container)
+EXPOSE 6901
 
-# Set the environment variable for screen resolution
-ENV RESOLUTION=1380x770
+# Set the environment variable for screen resolution (adjust as needed)
+ENV RESOLUTION=1366x768
 
-# Start the command to run NoVNC
+# Start the command to run NoVNC with the specified password
 CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
